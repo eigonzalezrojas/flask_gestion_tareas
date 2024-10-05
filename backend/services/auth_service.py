@@ -2,6 +2,7 @@
 from models.user import User
 from database import db
 
+
 def register_user(username, password):
     if User.query.filter_by(username=username).first():
         return {"msg": "Usuario ya existe"}, 409
@@ -12,6 +13,7 @@ def register_user(username, password):
     db.session.commit()
 
     return {"msg": "Usuario registrado exitosamente"}, 201
+
 
 def authenticate_user(username, password):
     user = User.query.filter_by(username=username).first()

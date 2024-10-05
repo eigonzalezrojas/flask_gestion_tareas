@@ -3,6 +3,7 @@ from services.auth_service import register_user, authenticate_user
 
 auth_bp = Blueprint('auth', __name__)
 
+
 @auth_bp.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
@@ -11,6 +12,7 @@ def register():
 
     response, status = register_user(username, password)
     return jsonify(response), status
+
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
